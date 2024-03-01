@@ -1,0 +1,43 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registro de Bodega(s)</h3>
+    <form (ngSubmit) = "addWarehousing()"  #wareHousingForm = "ngForm">
+        <div class="form-group">
+            <label>Pais:</label>
+            <input type="text"
+            class="form-control"
+            id="country"
+            [(ngModel)] = "warehousing.country"
+            name = "country"
+            required
+            placeholder="Introduzca el Pais">
+        </div>
+        <div class="form-group">
+            <label>Ciudad:</label>
+            <input type="text"
+            class="form-control"
+            id="city"
+            [(ngModel)] = "warehousing.city"
+            name = "city"
+            required
+            placeholder="Introduzca la Ciudad">
+        </div>
+        <div class="form-group">
+            <label>Dirección:</label>
+            <input type="text"
+            class="form-control"
+            id="addres"
+            [(ngModel)] = "warehousing.address"
+            name = "addres"
+            required
+            placeholder="Introduzca la Dirección">
+        </div>
+        <div class="form-group">
+            <label>Tipo de almacen:</label>
+            <select id="inputPlace" class="form-control" [(ngModel)]= "place" [ngModelOptions]= "{ standalone: true }" (change)= "sendJob($event)">
+                <option selected>Selceccione el tipo de almacen</option>
+                <option *ngFor= "let place of places" [value]= "place.text">{{place.text}}</option>
+            </select>
+        </div>
+        <button class="btn btn-success" [disabled]= "!wareHousingForm.form.valid">Agregar</button>
+    </form>
+</div>

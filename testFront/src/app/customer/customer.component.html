@@ -1,0 +1,56 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registro de empelado</h3>
+    <form (ngSubmit) = "onSubmit()"  #customerForm = "ngForm">
+        <div class="form-group">
+            <label>Nombre:</label>
+            <input type="text"
+            class="form-control"
+            id="name"
+            [(ngModel)] = "customer.name"
+            name = "name"
+            required
+            placeholder="Introduzca el nombre">
+        </div>
+        <div class="form-group">
+            <label>Número de cédula:</label>
+            <input type="text"
+            class="form-control"
+            id="id"
+            [(ngModel)] = "customer.id"
+            name = "id"
+            required
+            placeholder="Introduzca la cédula">
+        </div>
+        <div class="form-group">
+            <label>Número de celular:</label>
+            <input type="text"
+            class="form-control"
+            id="phone"
+            [(ngModel)] = "customer.phone"
+            name = "phone"
+            required
+            placeholder="Introduzca el Número de celular">
+        </div>
+        <div class="form-group">
+            <label>Correo:</label>
+            <input type="text"
+            class="form-control"
+            id="email"
+            [(ngModel)] = "customer.email"
+            name = "email"
+            required
+            placeholder="Introduzca el Email">
+        </div>
+        <div class="form-group">
+            <label>Dirección:</label>
+            <input type="text"
+            class="form-control"
+            id="address"
+            [(ngModel)] = "customer.address"
+            name = "address"
+            required
+            placeholder="Introduzca la Dirección">
+        </div>
+        <button class="btn btn-success" [disabled]= "!customerForm.form.valid">Guardar</button>
+    </form>
+</div>
