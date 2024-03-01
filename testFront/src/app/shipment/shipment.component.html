@@ -1,0 +1,36 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registro de envio</h3>
+    <form (ngSubmit) = "onSubmit()"  #customerForm = "ngForm">
+        <div class="form-group">
+            <label>Tipo de envio:</label>
+            <select id="shippingTypes" class="form-control" [(ngModel)]= "shippingType" [ngModelOptions]= "{ standalone: true }" (change)= "sendShppingTypes($event)">
+                <option selected>Selceccione el Tipo de envio</option>
+                <option *ngFor= "let shipp of shippingTypes" [value]= "shipp.text">{{shipp.text}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Fecha de admisión:</label>
+            <div class="space"></div>
+            <div class="space"></div>
+
+            <input type="date" id="dateForm" (change)= "SendDataonChange($event)" [(ngModel)]= "dateForm" [ngModelOptions]= "{ standalone: true }"/>
+        </div>
+        <div class="form-group">
+            <label>Bodega de entrega:</label>
+            <select id="warehousing" class="form-control" [(ngModel)]= "idWare" [ngModelOptions]= "{ standalone: true }" (change)= "sendWareHousing($event)">
+                <option selected>Selceccione la bodega</option>
+                <option *ngFor= "let wareHousing of wareHousings" [value]= "wareHousing.id">{{wareHousing.address}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Placa/numero de flota:</label>
+            <select id="transport" class="form-control" [(ngModel)]= "idTransport" [ngModelOptions]= "{ standalone: true }" (change)= "sendTransport($event)">
+                <option selected>Selceccione Placa/numero de flota</option>
+                <option *ngFor= "let transport of transports" [value]= "transport.transportRegistration">{{transport.type.toString()+" - "+transport.transportRegistration.toString()}}</option>
+            </select>
+         
+
+        </div>
+        <button class="btn btn-success" [disabled]= "!customerForm.form.valid">Agregar</button>
+    </form>
+</div>
