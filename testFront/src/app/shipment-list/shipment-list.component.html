@@ -1,0 +1,41 @@
+<h2>Lista de envios</h2>
+<div>
+    <br>
+<label>Filtro</label>
+<input type="text" class="filtro-input" [(ngModel)]="filtro" placeholder="Buscar...">
+</div>
+<br>
+
+<table class=" table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Numero de guía</th>  
+            <th>Precio</th> 
+            <th>Precio normal</th> 
+            <th>Descuento</th>
+            <th>Tipo de envio</th> 
+            <th>Fecha admisión</th> 
+            <th>Fecha entrega</th> 
+            <th>Registro de transporte</th>
+            <th>Cliente</th> 
+            <th>Almacen</th> 
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let shipment of shipments">
+            <td>{{shipment.trackingNumber}}</td>
+            <td>{{shipment.price}}</td>
+            <td>{{shipment.normalPrice}}</td>
+            <td>{{shipment.discount}}</td>
+            <td>{{shipment.shippingType}}</td>
+            <td>{{shipment.admissionDate}}</td>
+            <td>{{shipment.deliveryDate}}</td>
+            <td>{{shipment.transport.transportRegistration}}</td>
+            <td>{{shipment.customer.name}}</td>
+            <td>{{shipment.warehousing.city.toString() +" - "+ shipment.warehousing.address.toString()}}</td>
+
+            
+            
+        </tr>
+    </tbody>
+</table>

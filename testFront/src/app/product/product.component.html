@@ -1,0 +1,36 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registro de producto(s)</h3>
+    <form (ngSubmit) = "addProduct()"  #customerForm = "ngForm">
+        <div class="form-group">
+            <label>Tipo Producto:</label>
+            <input type="text"
+            class="form-control"
+            id="productType"
+            [(ngModel)] = "product.productType"
+            name = "productType"
+            required
+            placeholder="Introduzca el Tipo Producto">
+        </div>
+        <div class="form-group">
+            <label>Nombre producto:</label>
+            <input type="text"
+            class="form-control"
+            id="nameProduct"
+            [(ngModel)] = "product.nameProduct"
+            name = "nameProduct"
+            required
+            placeholder="Introduzca el Nombre producto">
+        </div>
+        <div class="form-group">
+            <label>Referencia:</label>
+            <input type="text"
+            class="form-control"
+            id="referenceProduct"
+            [(ngModel)] = "product.referenceProduct"
+            name = "referenceProduct"
+            required
+            placeholder="Introduzca la Referencia">
+        </div>
+        <button class="btn btn-success" [disabled]= "!customerForm.form.valid">Agregar</button>
+    </form>
+</div>
